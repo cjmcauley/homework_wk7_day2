@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="./css/style.css">
-	<script src="./js/bundle.js"></script>
-  </head>
-  <body>
-    
-    <div id="app">
+<head>
+  <meta charset="utf-8">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/bundle.js"></script>
+</head>
+<body>
+
+  <div id="app">
+
+    <label>Select your Currency</label>
+
+    <select id="currency_select" v-model="selectedCurrency">
+      <option disabled value="">Select a Currency</option>
+      <option v-for="(rate, currency) in currencyData">{{currency}}</option>
+    </select>
+
+    <div id="selected_currency" v-if="selectedCurrency">
+      <h3><input type="number" name="amountlocal" id="amountlocal"> {{ selectedCurrency }} is worth EUR</h3>
+      <h3><input type="number" name="amountbase" id="amountbase">EUR is worth {{ selectedCurrency }}</h3>
 
     </div>
+  </div>
 
-  </body>
+</body>
 </html>
